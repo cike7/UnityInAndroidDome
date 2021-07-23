@@ -1,0 +1,3 @@
+rootProject.name = "UnityDome"
+include ':app'
+include ':unityLibrary'
