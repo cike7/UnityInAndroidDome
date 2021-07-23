@@ -1,19 +1,19 @@
 # UnityInAndroidDome
 Unity打包到原生Android平台
-	1. Unity项目打包注意事项：
+
+## 1. Unity项目打包注意事项：
 
 	unity包名与Android项目的包名一致
 
-	2. 然后打开 Android Studio，选择 File - New - Import Project，选择之前导出的 Unity 工程，把它倒入 Android Studio，具体如下图
+## 2. 然后打开 Android Studio，选择 File - New - Import Project，选择之前导出的 Unity 工程，把它倒入 Android Studio，具体如下图
 
-	3. AndroidStudio工程具体修改:
+## 3. AndroidStudio工程具体修改:
 
-	A. app添加unity-classes.jar包：
+### A. app添加unity-classes.jar包：
 
-	B. Build.gradle 修改：
+### B. Build.gradle 修改：
 
-```javascript
-
+```java
 plugins {
     id 'com.android.application'
 }
@@ -74,14 +74,11 @@ dependencies {
 
     implementation project(':unityLibrary')
 }
-
 ```
 
+### C. MainActivity跳转Unity
 
-	C. MainActivity跳转Unity
-
-```javascript
-
+```java
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
@@ -97,10 +94,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 }
+```
 
 
-	D. 添加Unity返回app监听脚本：
+### D. 添加Unity返回app监听脚本：
 
+```java
 public class UnityForMainActivity extends UnityPlayerActivity {
 
     @Override
@@ -121,13 +120,11 @@ public class UnityForMainActivity extends UnityPlayerActivity {
     }
 
 }
-
 ```
 
-	E. AndroidManifest.xml 修改：
+### E. AndroidManifest.xml 修改：
 
 ```xml
-
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.unitydome">
@@ -166,13 +163,11 @@ public class UnityForMainActivity extends UnityPlayerActivity {
     </application>
 
 </manifest>
-
 ```
 
-	F. values文件夹下添加 ids.xml，strings.xml， stylee.xml
+### F. values文件夹下添加 ids.xml，strings.xml， stylee.xml
 
-	4. 项目结构预览
+## 4. 项目结构预览
 
-
-	5. 以上是unity项目导入AndroidStudio打包前的基本流程，所有工作做完后就可以直接打包调试了
+## 5. 以上是unity项目导入AndroidStudio打包前的基本流程，所有工作做完后就可以直接打包调试了
 
